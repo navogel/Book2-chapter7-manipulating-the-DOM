@@ -103,7 +103,7 @@ const students = [
 // 	);
 // }
 
-// refactor with one object arguement
+//////// refactor with one object arguement /////////////
 
 // const studentContainer = document.querySelector("#container");
 
@@ -118,7 +118,7 @@ const students = [
 // 	}
 // }
 
-// create smaller components inside the component
+////////// create smaller components inside the component//////////////
 
 const studentContainer = document.querySelector("#container");
 
