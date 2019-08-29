@@ -78,9 +78,9 @@ const students = [
 const createStudentComponent = (name, subject, info, grade) => {
 	return `
         <div class="student">
-            <h1 class="${grade}">${name}</h1>
-            <section>${subject}</section>
-            <aside>${info}</aside>
+            <h1 class="xx-large ${grade}">${name}</h1>
+            <section class="bordered dashed section--padded">${subject}</section>
+            <aside class="pushRight">${info}</aside>
         </div>
     `;
 };
