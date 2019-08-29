@@ -75,30 +75,65 @@ const students = [
 	}
 ];
 
-const createStudentComponent = (name, subject, info, grade) => {
-	return `
-        <div class="student">
-            <h1 class="xx-large ${grade}">${name}</h1>
-            <section class="bordered dashed section--padded">${subject}</section>
-            <aside class="pushRight">${info}</aside>
-        </div>
-    `;
-};
+// const createStudentComponent = (name, subject, info, grade) => {
+// 	return `
+//         <div class="student">
+//             <h1 class="xx-large ${grade}">${name}</h1>
+//             <section class="bordered dashed section--padded">${subject}</section>
+//             <aside class="pushRight">${info}</aside>
+//         </div>
+//     `;
+// };
+
+// const studentContainer = document.querySelector("#container");
+
+// for (let i = 0; i < students.length; i++) {
+// 	const student = students[i];
+// 	let studentComponent;
+// 	if (student.score >= 60) {
+// 		studentComponent = "passing";
+// 	} else {
+// 		studentComponent = "failing";
+// 	}
+// 	studentContainer.innerHTML += createStudentComponent(
+// 		student.name,
+// 		student.subject,
+// 		student.info,
+// 		studentComponent
+// 	);
+// }
+
+// refactor with one object arguement
 
 const studentContainer = document.querySelector("#container");
 
+function failingStudent(student) {
+	return `
+        <div class="student">
+            <h1 class="xx-large failing">${student.name}</h1>
+            <section class="bordered dashed section--padded">${student.subject}</section>
+            <aside class="pushRight">${student.info}</aside>
+        </div>
+    `;
+}
+
+function passingStudent(student) {
+	return `
+        <div class="student">
+            <h1 class="xx-large passing">${student.name}</h1>
+            <section class="bordered dashed section--padded">${student.subject}</section>
+            <aside class="pushRight">${student.info}</aside>
+        </div>
+    `;
+}
+
 for (let i = 0; i < students.length; i++) {
-	const student = students[i];
-	let studentComponent;
-	if (student.score >= 60) {
-		studentComponent = "passing";
+	let studentComponent = "";
+	if (students.score >= 60) {
+		let studentComponent = passingStudent(students[i]);
+		studentContainer.innerHTML += studentComponent;
 	} else {
-		studentComponent = "failing";
+		let studentComponent = failingStudent(students[i]);
+		studentContainer.innerHTML += studentComponent;
 	}
-	studentContainer.innerHTML += createStudentComponent(
-		student.name,
-		student.subject,
-		student.info,
-		studentComponent
-	);
 }
